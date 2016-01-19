@@ -1,0 +1,20 @@
+{
+  "name": "dvorakjan/noderunner-php",
+  "description": "PHP library for easy adding jobs to noderunner queues.",
+  "require": {
+  },
+  "require-dev": {
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jan Dvorak",
+      "email": "dvorakj@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "NodeRunner\\": "src"
+    }
+  }
+}
