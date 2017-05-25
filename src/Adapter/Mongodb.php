@@ -114,7 +114,12 @@ class Mongodb implements IAdapter {
         return $this->db->{$collection}->findAndModify($query, $update, $fields, $options);
     }
 
-    public function getLastInsertId() {
+    public function getLastInsertId()
+    {
         return $this->lastInsertId ? $this->lastInsertId->__toString() : null;
+    }
+
+    public function objectId($id) {
+        return new \MongoDB\BSON\ObjectID($id);
     }
 }

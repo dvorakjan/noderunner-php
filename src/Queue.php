@@ -8,7 +8,7 @@ class Queue
     private $queueName;
 
     /**
-     * @var Adapter\Mongo $adapter
+     * @var IAdapter $adapter
      */
     private $adapter;
 
@@ -103,6 +103,13 @@ class Queue
         unset($data['__class']);
         $message = call_user_func_array([$class, 'create'], ['data' => $data]);
         return $message;
+    }
+
+    /**
+     * @return IAdapter
+     */
+    public function getAdapter() {
+        return $this->adapter;
     }
 
 }
