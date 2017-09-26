@@ -86,7 +86,9 @@ class Mongodb implements IAdapter {
     public function remove($collection, $criteria = [], $options = [])
     {
         $this->connect();
-        return $this->db->{$collection}->remove($criteria, $options);
+        
+        $result = $this->db->selectCollection($collection)->deleteMany($criteria, $options);
+        return $result->isAcknowledged() && $result->getDeletedCount() > 0;
     }
 
     public function drop($collection)
