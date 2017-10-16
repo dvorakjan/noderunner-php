@@ -121,7 +121,13 @@ class Mongodb implements IAdapter {
         return $this->lastInsertId ? $this->lastInsertId->__toString() : null;
     }
 
-    public function objectId($id) {
+    public function objectId($id)
+    {
         return new \MongoDB\BSON\ObjectID($id);
+    }
+
+    public function regex($pattern, $flags = '')
+    {
+        return new \MongoDB\BSON\Regex($pattern, $flags);
     }
 }

@@ -114,11 +114,18 @@ class Mongo implements IAdapter {
         return $this->db->{$collection}->findAndModify($query, $update, $fields, $options);
     }
 
-    public function getLastInsertId() {
+    public function getLastInsertId()
+    {
         return $this->lastInsertId ? $this->lastInsertId->__toString() : null;
     }
 
-    public function objectId($id) {
+    public function objectId($id)
+    {
         return new \MongoId($id);
+    }
+
+    public function regex($pattern, $flags = '')
+    {
+        return new \MongoRegex('/'.$pattern.'/'.$flags);
     }
 }
