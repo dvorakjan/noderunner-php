@@ -1,5 +1,5 @@
 {
-  "name": "dvorakjan/noderunner-php",
+  "name": "ebrana/noderunner-php",
   "description": "PHP library for easy adding jobs to noderunner queues.",
   "require": {
   },
