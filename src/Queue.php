@@ -167,13 +167,14 @@ class Queue
     }
 
     /**
+     * @param array $query
      * @return mixed
      * @throws \NodeRunner\Exception\QueueException
      */
-    public function count()
+    public function count($query = [])
     {
         try {
-            return $this->adapter->count($this->queueName);
+            return $this->adapter->count($this->queueName, $query);
         } catch (\Exception $exception) {
             throw new QueueException($exception->getMessage());
         }
