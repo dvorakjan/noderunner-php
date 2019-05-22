@@ -97,11 +97,17 @@ class Mongodb implements IAdapter {
         return $this->db->{$collection}->drop();
     }
 
+    /**
+     * @param string $collection
+     * @param array  $query
+     * @param array  $fields
+     * @return array
+     */
     public function find($collection, $query = [], $fields = [])
     {
         $this->connect();
-        $cursor = $this->db->{$collection}->find($query, $fields)->toArray();
-        return isset($cursor[0]) ? $cursor[0] : new \ArrayObject();
+
+        return $this->db->{$collection}->find($query, $fields)->toArray();
     }
 
     public function findOne($collection, $query = [], $fields = [])
